@@ -7,7 +7,8 @@ export default props => {
         <div className='card'>
             <li>Name: {props.user.name}</li>
             <li>Login: {props.user.login}</li>
-            <li>Bio: {props.user.bio}</li>
+            <li>Location: {props.user.location}</li>
+            {props.user.bio !== null ? `Bio: ${props.user.bio}` : ''}
         </div>
     )
 }

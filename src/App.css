@@ -29,4 +29,9 @@
   border: 1px green solid;
   margin: 1rem;
   width: 40vw;
+  list-style: none;
+  padding: 1rem;
+}
+.card li{
+  margin: .5rem 0;
 }

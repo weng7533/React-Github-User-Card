@@ -56,7 +56,7 @@ class App extends React.Component {
         <Card user={this.state.users} />
         {
           this.state.usersFollowers.map((user, index) => {
-            return <Card user={user} index={index} />
+            return <Card user={user} key={index} />
           })
         }
 
