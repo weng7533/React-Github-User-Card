@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -19,4 +22,11 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+
+.card{
+  border: 1px green solid;
+  margin: 1rem;
+  width: 40vw;
 }
