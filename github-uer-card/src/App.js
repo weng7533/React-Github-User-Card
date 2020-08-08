@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import UserCardList from './UserCardList';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {
+        myData: '',
+        myfollowerData: ''
+      }
+    };
+  }
+
+  componentDidMount() {
+    console.log('Mount')
+    const getData = () => {
+      fetch('https://api.github.com/users/weng7533')
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            data: {
+              ...this.state.data,
+              myData: data
+            }
+          })
+        }
+        );
+    }
+    const getFollowersData = () => {
+      fetch('https://api.github.com/users/weng7533/followers')
+        .then(res => res.json())
+        .then(data => {
+
+          this.setState({
+            data: {
+              ...this.state.data,
+              myfollowerData: data
+            }
+          })
+        }
+        );
+    }
+    getData();
+    getFollowersData();
+  }
+
+  render() {
+
+    return (
+      <>
+
+
+
+        < UserCardList data={this.state.data} />
+      </>
+    )
+  }
 }
+
+
 
 export default App;
